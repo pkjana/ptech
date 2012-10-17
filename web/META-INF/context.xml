@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/PratashyaTech">
+    <Resource name="jdbc/ptech" auth="Container"
+            type="javax.sql.DataSource"
+
+            driverClassName="org.postgresql.Driver"
+            url="jdbc:postgresql://10.57.4.68:5432/ptech"
+            username="erp"
+            password="db4dev@68"
+            maxIdle="30"
+            maxWait="60000"
+            maxActive="50" />
+</Context>

@@ -1,0 +1,146 @@
+/* 
+    Document   : common
+    Created on : Jul 15, 2012, 11:28:24 AM
+    Author     : Debasis Jana
+    Description: common CSS included in every page
+*/
+body {
+margin-top: 5px;
+margin-left: 75px;
+margin-right: 75px;
+background-color: #ffffff;
+}
+table{
+border-width: 0px;
+padding: 0px;
+}
+input[type="text"] {
+border: solid 1px gray;
+}
+input[type="text"]:focus {
+border: #4c8ffc solid 1px;
+}
+textarea {
+border: solid 1px gray;
+}
+textarea:focus {
+border: #4c8ffc solid 1px;
+}
+input[type="password"] {
+border: solid 1px gray;
+}
+input[type="password"]:focus {
+border: #4c8ffc solid 1px;
+}
+input[type="button"] {
+font-size: 10px;
+font-family: Helvetica, sans-serif;
+font-weight: 600;
+font-style: normal;
+color: black;
+border: 1px solid gray;
+background-color: #cccccc;
+padding: 2px;
+}
+input[type="button"]:hover {
+cursor:pointer;
+background-color: #4c8ffc;
+color: white;
+}
+span,td.label {
+font-size: 12px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: black;
+padding: 3px;
+}
+/*window contains data window*/
+#data td {
+font-size: 12px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: black;
+padding: 3px;
+}
+/*its the main td in every page*/
+#outer_td {
+width: 890px;
+}
+h1 {
+font-size: 20px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: black;
+--padding: 3px;
+}
+h2 {
+font-size: 18px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: black;
+--padding: 3px;
+}
+#submenu td {
+font-size: 12px;
+font-family: Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: gray;
+background-color: inherit;
+padding: 3px;
+}
+#submenu td:hover {
+background-color: #cccccc;
+color: white;
+cursor: pointer;
+}
+/*#submenu td.active {
+background-color: #cccccc;
+color: white;
+}*/
+span.info {
+font-size: 12px;
+font-family: Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: black;
+}
+span.error {
+font-size: 12px;
+font-family: Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: red;
+}
+a {
+font-size: 10px;
+font-family: Helvetica, sans-serif;
+font-weight: bold;
+font-style: normal;
+color: #6c9ab5;
+}
+div.calendar {
+border: 2px solid #4c8ffc;
+background-color: white;
+position: absolute;
+width: auto;
+height: auto;
+}
+td.calendar-data {
+font-size: 10px;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-weight: normal;
+font-style: normal;
+color: black;
+background-color: inherit;
+padding: 2px;
+}
+td.calendar-active-data {
+border: 1px solid gray;
+background-color: #4c8ffc;
+font-weight: bold;
+}

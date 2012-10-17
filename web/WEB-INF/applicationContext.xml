@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    
+       <bean id="datasource" class="org.springframework.jndi.JndiObjectFactoryBean">
+            <property name="jndiName" value="java:comp/env/jdbc/ptech" />
+        </bean>
+
+        <bean id="commomnDao" class="org.pratyasha.erp.util.dao.CommonServices">
+            <property name="ds" ref="datasource" />
+        </bean>
+
+        <bean id="blogDao" class="org.pratyasha.erp.blog.dao.BlogDao">
+            <property name="ds" ref="datasource" />
+        </bean>
+
+        <bean id="clientDao" class="org.pratyasha.erp.client.dao.ClientDao">
+            <property name="ds" ref="datasource" />
+        </bean>
+
+        <bean id="userDao" class="org.pratyasha.erp.user.dao.UserDao">
+            <property name="ds" ref="datasource" />
+        </bean>
+
+        <bean id="loginDao" class="org.pratyasha.erp.login.dao.LoginDao">
+            <property name="ds" ref="datasource" />
+        </bean>
+
+        <!--configuration of transaction managers for two DS(s) and enables annotation driven transaction management-->
+        <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="datasource"/>
+        </bean>
+
+        <tx:annotation-driven transaction-manager="txManager"/>
+    
+</beans>

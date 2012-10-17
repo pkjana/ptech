@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!--message code resolver-->
+    <!--<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages"/>-->
+
+    <!--multipart resolver for file uploading-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+    
+    <!--controller namewise mapping-->
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <bean id="common" class="org.pratyasha.erp.util.controller.CommonServicesController">
+        <property name="dao" ref="commomnDao" />
+    </bean>
+
+    <bean id="blog" class="org.pratyasha.erp.blog.controller.BlogController">
+        <property name="dao" ref="blogDao" />
+    </bean>
+
+    <bean id="client" class="org.pratyasha.erp.client.controller.ClientController">
+        <property name="dao" ref="clientDao" />
+    </bean>
+
+    <bean id="userValidator" class="org.pratyasha.erp.user.validator.UserValidator" />
+
+    <bean id="user" class="org.pratyasha.erp.user.controller.UserController">
+        <property name="dao" ref="userDao" />
+        <property name="sessionForm" value="true" />
+        <property name="commandName" value="user" />
+        <property name="validator" ref="userValidator" />
+        <property name="profileView" value="user/profile" />
+    </bean>
+
+    <bean id="userQuery" class="org.pratyasha.erp.user.controller.UserQueryController" >
+        <property name="dao" ref="userDao" />
+    </bean>
+
+    <bean id="login" class="org.pratyasha.erp.login.controller.LoginController" >
+        <property name="dao" ref="loginDao" />
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="common.htm">common</prop>
+                <prop key="query4user.htm">userQuery</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+    
+</beans>
